@@ -1,86 +1,33 @@
-.card {
-	background-color: #f8f8f8;
-	color: #272727;
-	padding: 20px;
-	border-radius: 10px;
-	border: 0px;
-	border-color: #0119F0;
-	border-style: solid;
-	transition: 200ms;
-    max-width: 350px;
-	margin: 10px;
+img {
+	width: 100px;
+	height: 100px;
 }
 
-.card:hover {
-	transition: 200ms;
-	border: 3px;
-	border-color: #0119F0;
-	border-style: solid;
-}
-
-.card-header {
+.card{
 	display: flex;
-	flex-wrap: nowrap;
+	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-
-}
-
-.profile {
-	width: 2.5rem;
-	height: 2.5rem;
-	background-color: gray;
-	border-radius: 50%;
-	margin: 10px;
-	font-size: 20pt;
-	text-align: center;
-	font-weight: bold;
 	color: white;
-	justify-content: center;
 }
 
-.letter {
-	vertical-align: middle;
-}
-
-.card-title-group {
-	justify-content: center;
-}
-
-.card-title {
-	flex: 0.5;
-	font-size: large;
-	margin-bottom: 0;
-	margin-top: 0;
-}
-.card-date {
-	flex: 0.3;
-	font-size: small;
-	margin-top: 0;
-}
-
-.card-image {
-	border-radius: 10px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-    width: 75%;
-}
-.card-like-icon {
-	height: 25px;
-}
-
-.card-text {
-	width: 350px;
-	font-size: medium;
-}
-
-.card-like-bar {
+.content-card {
 	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
 	align-items: center;
-	margin-top: 20px;
-	justify-content: space-between;
+	margin-left: 200px;
+	margin-right: 200px;
 }
 
-.like-text {
-	font-size: small;
-	margin-left: 10px;
+.card-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+p {
+	width: 300px
 }

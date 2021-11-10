@@ -1,28 +1,34 @@
-import React from "react";
-import "./index.css";
-import food from "../../assets/senai.png"; // Tell webpack this JS file uses this image
-import heartOutline from "../../assets/heart-outline.png"; // Tell webpack this JS file uses this image
-import heartFill from "../../assets/heart-fill.png"; // Tell webpack this JS file uses this image
+import React, { useState, useEffect } from 'react';
 
-export default function Card(props) {
+import axios from 'axios';
+
+import Senai from '../../assets/senai.png'
+
+import Logo from "../../assets/logoEricsson.png";
+
+import './index.css'
+
+export default function Card() {
+
+  const [ courses, setCourses ] = useState([]);
+
+  useEffect(() => {
+    fetch('https://flashcard-api-mayck.herokuapp.com/api/colecoes')
+      .then(response => response.json())
+      .then(data => setCourses(data))
+  }, [])
+
   return (
-    <div className="card">
-      <div className="card-header">
-        <div className="profile">
-          <span className="letter">{props.author[0]}</span>
-        </div>
-        <div className="card-title-group">
-          <h5 className="card-title">{props.title}</h5>
-          <div className="card-date">{props.date}</div>
-        </div>
-      </div>
-      <img className="card-image" src={food} alt="Logo" />
-      <div className="card-text">{props.description}</div>
-      <div className="card-like-bar">
-        {props.liked ? (<img className="card-like-icon" src={heartFill} alt="Logo" />) : (<img className="card-like-icon" src={heartOutline} alt="Logo" />)}
-        <div className="like-text">
-          <b>{props.likeCount}</b> pessoas curtiram esse curso
-        </div>
+    <div className="card-container">
+      <h2>Cursos</h2>
+      <div className="content-card">
+        {courses.map(course => (
+          <div className="card">
+            <span>{ course.nome }</span>
+            <img src={Senai}/>
+            <p>{ course.descricao }</p>
+          </div>
+        ))}
       </div>
     </div>
   );

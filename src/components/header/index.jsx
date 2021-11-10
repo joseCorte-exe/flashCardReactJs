@@ -18,8 +18,8 @@ export default function Header() {
                     <a>Courses</a>
                 </Link>
 
-                <Link to="/" className="link">
-                    <a>My courses</a>
+                <Link to="/cadastro" className="link">
+                    <a>Cadastrar curso</a>
                 </Link>
 
                 <Link to="/" className="link">
