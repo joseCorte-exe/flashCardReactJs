@@ -8,25 +8,25 @@ import "./index.css";
 
 export default function Courses() {
 
-    const recipeAuthor = "José";
-    const recipeItem = {
-    title: "Couse: React with the best",
-    date: "32 de julho de 2012",
-    description:
-      "O melhor curso de React com quem sabe pouco de react, se inscreva agora para não perder essa grande oportunidade, que alias unica e exclusiva",
-  };
-
   const api = axios.create({
-    baseURL: "https://flashcard-api-mayck.herokuapp.com/api/colecoes"
+    baseURL: "https://api.github.com",
   });
 
-  const like = 193;
-  const isLiked = true;
+const [ courses, setCourses ] = useState([]);
+
+useEffect(() => {
+fetch('https://flashcard-api-mayck.herokuapp.com/api/colecoes')
+  .then(response => response.json())
+  .then(data => setCourses(data))
+}, [])
 
     return (
         <div className="courses-container">
-            <Card
-          />
+            {
+                courses.map(course => (
+                    <Card title={course.nome} description={course.descricao} />
+                ))
+            }
         </div>
     )
 }

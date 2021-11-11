@@ -31,14 +31,14 @@ export default function Cadastro() {
     }
 
     return(
-        <div>
-            <form onSubmit={(e) => submit(e)}>
+        <div className="cadastro-container">
+            <form onSubmit={(e) => submit(e)} className='form' >
                 <label>
                     nome do curso:
                     <input onChange={(e) => handle(e)} id='name' value={data.name} type='text' name='name' />  
                 </label>
                 <label>
-                    descrição
+                    descrição: 
                     <input onChange={(e) => handle(e)} id='description' value={data.description} type='text' name='description' />
                 </label>
                 <button>cadastrar</button>

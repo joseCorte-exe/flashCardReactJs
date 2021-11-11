@@ -8,7 +8,7 @@ import Logo from "../../assets/logoEricsson.png";
 
 import './index.css'
 
-export default function Card() {
+export default function Card(props) {
 
   const [ courses, setCourses ] = useState([]);
 
@@ -19,17 +19,26 @@ export default function Card() {
   }, [])
 
   return (
-    <div className="card-container">
-      <h2>Cursos</h2>
-      <div className="content-card">
-        {courses.map(course => (
-          <div className="card">
-            <span>{ course.nome }</span>
-            <img src={Senai}/>
-            <p>{ course.descricao }</p>
+      <div class='card-container' >
+          <div class='card-content' >
+              <h3>{ props.title }</h3>
+              <div class='card-image' ></div>
+              <footer>
+                  <p>{ props.description }</p>
+              </footer>
           </div>
-        ))}
       </div>
-    </div>
+    // <div className="card-container">
+    //   <h2>Cursos</h2>
+    //   <div className="content-card">
+    //     {courses.map(course => (
+    //       <div className="card">
+    //         <span>{ course.nome }</span>
+    //         <img src={Senai}/>
+    //         <p>{ course.descricao }</p>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
   );
 }

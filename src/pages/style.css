@@ -1,0 +1,23 @@
+.cadastro-container {
+    display: flex;
+    justify-content:center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+button {
+    background-color:#505050;
+}
+
+label {
+    margin-bottom: 50px;
+}
+
+input {
+    width: 500px;
+    margin-left: 10px;
+}
