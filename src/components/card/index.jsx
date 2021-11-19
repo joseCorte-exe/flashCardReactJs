@@ -28,17 +28,5 @@ export default function Card(props) {
               </footer>
           </div>
       </div>
-    // <div className="card-container">
-    //   <h2>Cursos</h2>
-    //   <div className="content-card">
-    //     {courses.map(course => (
-    //       <div className="card">
-    //         <span>{ course.nome }</span>
-    //         <img src={Senai}/>
-    //         <p>{ course.descricao }</p>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
   );
 }

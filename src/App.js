@@ -16,9 +16,11 @@ function App() {
         <Header />
         <Route path="/" exact component={Home}/>
         <Route path="/courses" component={Courses}/>
-        <Route path='/cadastro' component={Cadastro}/>
+        <Route path='/cadastro/novo' component={Cadastro}/>
+        <Route path='/cadastro/editar/:colecaoId' component={Cadastro}/>
       </div>
     </Router>
+    
   );
 }
 

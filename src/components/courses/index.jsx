@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 import Card from "../card/index.jsx"
 
@@ -24,7 +25,9 @@ fetch('https://flashcard-api-mayck.herokuapp.com/api/colecoes')
         <div className="courses-container">
             {
                 courses.map(course => (
+                  <Link to={"/cadastro/editar/" + course.colecaoId}>
                     <Card title={course.nome} description={course.descricao} />
+                  </Link>
                 ))
             }
         </div>

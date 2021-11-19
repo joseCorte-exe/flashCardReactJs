@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Outlet, Link } from "react-router-dom";
 
 import Logo from "../../assets/logoEricsson.png";
 
@@ -18,7 +18,7 @@ export default function Header() {
                     <a>Courses</a>
                 </Link>
 
-                <Link to="/cadastro" className="link">
+                <Link to="/cadastro/novo" className="link">
                     <a>Cadastrar curso</a>
                 </Link>
 
