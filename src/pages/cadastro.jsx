@@ -19,7 +19,7 @@ export default function Cadastro() {
       });
 
     const [data, setData] = useState({
-        name: '',
+        nome: '',
         description: ''
     })
 
@@ -28,37 +28,37 @@ export default function Cadastro() {
     function submit(e) {
         e.preventDefault();
         if ( colecaoId ) {
-            api.put("/colecaoId", data)
+            api.put("/"+colecaoId, {
+                name: data.nome,
+                descricao: data.description,
+            })
             console.log('put')
         } else {
             api.post('/',
                 {
-                    name: data.name,
-                    description: data.description,
+                    name: data.nome,
+                    descricao: data.description,
                 }
             )
             console.log('post')
         }
     }
 
-    function handle(e) {
-        const newdata={...data}
-        newdata[e.target.id] = e.target.value
-        setData(newdata)
-    }
+    console.log(data.nome);
 
     return(
         <div className="cadastro-container">
             <form onSubmit={(e) => submit(e)} className='form' >
                 <label>
                     nome do curso:
-                    <input onChange={(e) => handle(e)} id='name' value={setData.name} type='text' name='name' />  
+                    <input onChange={e => setData({...data, nome: e.target.value})} id='name' value={data.nome} type='text' name='name' />  
                 </label>
                 <label>
                     descrição: 
-                    <input onChange={(e) => handle(e)} id='description' value={setData.description} type='text' name='description' />
+                    <input onChange={e => setData({...data, description: e.target.value})} id='description' value={data.description} type='text' name='description' />
                 </label>
                 <button>cadastrar</button>
+                <button></button>
             </form>
         </div>
     )
