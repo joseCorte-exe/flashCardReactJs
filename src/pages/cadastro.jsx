@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -19,8 +19,8 @@ export default function Cadastro() {
       });
 
     const [data, setData] = useState({
-        nome: '',
-        description: ''
+        name: '',
+        descricao: ''
     })
 
     console.log(colecaoId)
@@ -29,36 +29,47 @@ export default function Cadastro() {
         e.preventDefault();
         if ( colecaoId ) {
             api.put("/"+colecaoId, {
-                name: data.nome,
-                descricao: data.description,
+                name: data.name,
+                descricao: data.descricao,
             })
             console.log('put')
         } else {
             api.post('/',
                 {
-                    name: data.nome,
-                    descricao: data.description,
+                    nome: data.name,
+                    descricao: data.descricao,
                 }
             )
-            console.log('post')
+            console.log(data)
         }
     }
 
-    console.log(data.nome);
+    function handleDelete( e ){
+        api.delete("/" + colecaoId)
+
+        console.log("curso de id:" + colecaoId + ", excluido")
+    }
+
+    useEffect(()=>{
+        api.get("/" + colecaoId)
+            .then(res => setData(res.data))
+    }, colecaoId)
+
+    console.log(data.name);
 
     return(
         <div className="cadastro-container">
             <form onSubmit={(e) => submit(e)} className='form' >
                 <label>
                     nome do curso:
-                    <input onChange={e => setData({...data, nome: e.target.value})} id='name' value={data.nome} type='text' name='name' />  
+                    <input onChange={ e => setData({...data, name: e.target.value})} id='name' value={data.name} type='text' name='name' />  
                 </label>
                 <label>
                     descrição: 
-                    <input onChange={e => setData({...data, description: e.target.value})} id='description' value={data.description} type='text' name='description' />
+                    <input onChange={e => setData({...data, descricao: e.target.value})} id='description' value={data.descricao} type='text' name='description' />
                 </label>
                 <button>cadastrar</button>
-                <button></button>
+                <button onClick={handleDelete} >Deletar curso</button>
             </form>
         </div>
     )
