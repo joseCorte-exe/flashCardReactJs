@@ -29,7 +29,7 @@ export default function Cadastro() {
         e.preventDefault();
         if ( colecaoId ) {
             api.put("/"+colecaoId, {
-                name: data.name,
+                nome: data.name,
                 descricao: data.descricao,
             })
             console.log('put')
@@ -38,9 +38,8 @@ export default function Cadastro() {
                 {
                     nome: data.name,
                     descricao: data.descricao,
-                }
-            )
-            console.log(data)
+                })
+            console.log("post")
         }
     }
 
@@ -69,7 +68,7 @@ export default function Cadastro() {
                     <input onChange={e => setData({...data, descricao: e.target.value})} id='description' value={data.descricao} type='text' name='description' />
                 </label>
                 <button>cadastrar</button>
-                <button onClick={handleDelete} >Deletar curso</button>
+                <Link to="/courses" ><button onClick={handleDelete} >Deletar curso</button></Link>
             </form>
         </div>
     )
