@@ -3,7 +3,7 @@ import './App.css';
 import Courses from './components/courses/index.jsx';
 import Header from './components/header/index.jsx';
 import Home from './components/home/index.jsx';
-import Cadastro from './pages/cadastro';
+import Cadastro from './pages/index.jsx';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 

@@ -19,7 +19,7 @@ export default function Cadastro() {
       });
 
     const [data, setData] = useState({
-        name: '',
+        nome: '',
         descricao: ''
     })
 
@@ -29,16 +29,16 @@ export default function Cadastro() {
         e.preventDefault();
         if ( colecaoId ) {
             api.put("/"+colecaoId, {
-                nome: data.name,
+                nome: data.nome,
                 descricao: data.descricao,
             })
             console.log('put')
         } else {
-            api.post('/',
-                {
-                    nome: data.name,
-                    descricao: data.descricao,
-                })
+            api.post('/colecaoId',
+            {
+                nome: data.nome,
+                descricao: data.descricao,
+            })
             console.log("post")
         }
     }
@@ -54,21 +54,21 @@ export default function Cadastro() {
             .then(res => setData(res.data))
     }, colecaoId)
 
-    console.log(data.name);
-
     return(
         <div className="cadastro-container">
             <form onSubmit={(e) => submit(e)} className='form' >
                 <label>
                     nome do curso:
-                    <input onChange={ e => setData({...data, name: e.target.value})} id='name' value={data.name} type='text' name='name' />  
+                    <input onChange={ (e) => setData({...data, nome: e.target.value})} id='name' value={data.nome} type='text' name='name' />  
                 </label>
                 <label>
                     descrição: 
-                    <input onChange={e => setData({...data, descricao: e.target.value})} id='description' value={data.descricao} type='text' name='description' />
+                    <input onChange={(e) => setData({...data, descricao: e.target.value})} id='description' value={data.descricao} type='text' name='description' />
                 </label>
-                <button>cadastrar</button>
-                <Link to="/courses" ><button onClick={handleDelete} >Deletar curso</button></Link>
+                <div className='buttons'>
+                    <button>cadastrar</button>
+                    <button onClick={handleDelete} >Deletar curso</button>
+                </div>
             </form>
         </div>
     )

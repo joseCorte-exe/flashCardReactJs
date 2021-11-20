@@ -1,6 +1,7 @@
 .cadastro-container {
     display: flex;
     justify-content:center;
+    align-items:center;
 }
 
 form {
@@ -20,4 +21,11 @@ label {
 input {
     width: 500px;
     margin-left: 10px;
+}
+
+.buttons {    
+    display: flex;
+    justify-content:space-between;
+    width: 200px;
+    align-self: center;
 }
